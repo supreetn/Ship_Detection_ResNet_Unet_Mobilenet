@@ -31,8 +31,8 @@ There's a section for retraining the model from a specific epoch (e.g., epoch 4)
 
 - In summary, the code loads image and mask data, creates a U-Net model with a ResNet-50 backbone for image segmentation, and trains the model to segment objects (ships) in the images using a combination of loss functions and the mean Intersection over Union (IoU) metric. The model is trained in multiple epochs, with checkpoints to save the best model, and it can be retrained from a specific epoch if needed. The goal is to create a model that accurately segments ships in the given images.
 
-  # Training Mobilenet Model:
- - Model Building:
+# Training Mobilenet Model:
+- Model Building:
 
 The code builds a UNet-based model for image segmentation.
 The UNet model is designed with an encoder-decoder architecture, where the encoder extracts features from the input image, and the decoder produces a pixel-wise mask that identifies ship locations.
