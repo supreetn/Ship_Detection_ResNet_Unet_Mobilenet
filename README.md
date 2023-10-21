@@ -33,7 +33,6 @@ There's a section for retraining the model from a specific epoch (e.g., epoch 4)
 
 ![Screenshot 2023-10-20 184957](https://github.com/supreetn/Ship_Detection_ResNet_Unet_Mobilenet/assets/84839204/3c80cf81-b2b5-4c32-b066-d464e78e8992)
 
-
 # Training Mobilenet Model:
 - Model Building:
 
