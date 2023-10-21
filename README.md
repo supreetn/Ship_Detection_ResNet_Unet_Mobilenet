@@ -28,6 +28,10 @@ The training process includes multiple epochs.
 There's a section for retraining the model from a specific epoch (e.g., epoch 4), which loads the weights from a checkpoint and continues training.
 
 - Post this, the **Intersection over Union** is calculated along with accuracy and obtained about 82% accuracy after retraining the model.
+**IOU Evaluation is shown below**
+
+  ![Screenshot 2023-10-20 185317](https://github.com/supreetn/Ship_Detection_ResNet_Unet_Mobilenet/assets/84839204/0bdefaa6-a0b1-4f5f-b52a-12ce4480ea82)
+  
 
 - In summary, the code loads image and mask data, creates a U-Net model with a ResNet-50 backbone for image segmentation, and trains the model to segment objects (ships) in the images using a combination of loss functions and the mean Intersection over Union (IoU) metric. The model is trained in multiple epochs, with checkpoints to save the best model, and it can be retrained from a specific epoch if needed. The goal is to create a model that accurately segments ships in the given images.
 
