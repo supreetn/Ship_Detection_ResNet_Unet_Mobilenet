@@ -59,7 +59,7 @@ Model Evaluation:
 
 After training, the model is evaluated on a test dataset using the "evaluate" method, which returns metrics such as loss, mean IoU, and binary accuracy.
 
-- Result Analysis:
+# Result Analysis:
 
 This methodology combines transfer learning with a UNet architecture, leveraging the strengths of a pre-trained model to perform pixel-level image segmentation, which can be useful for tasks such as ship detection in images. It also includes custom loss functions and metrics tailored to the problem domain. The methodology appears to be suited for datasets where objects need to be segmented and classified in images.
 
