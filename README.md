@@ -31,6 +31,9 @@ There's a section for retraining the model from a specific epoch (e.g., epoch 4)
 
 - In summary, the code loads image and mask data, creates a U-Net model with a ResNet-50 backbone for image segmentation, and trains the model to segment objects (ships) in the images using a combination of loss functions and the mean Intersection over Union (IoU) metric. The model is trained in multiple epochs, with checkpoints to save the best model, and it can be retrained from a specific epoch if needed. The goal is to create a model that accurately segments ships in the given images.
 
+![Screenshot 2023-10-20 184957](https://github.com/supreetn/Ship_Detection_ResNet_Unet_Mobilenet/assets/84839204/3c80cf81-b2b5-4c32-b066-d464e78e8992)
+
+
 # Training Mobilenet Model:
 - Model Building:
 
