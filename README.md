@@ -13,8 +13,8 @@ At each threshold value , the F2 Score value is calculated based on the number o
 Lastly, the score returned by the competition metric is the mean taken over the individual average F2 Scores of each image in the test dataset.
 Finally the output csv has the location of pixels containing the ships in the particular image.
 
-# Training the U-Net Model:
-I set the parameters and paths, defines the data processing functions, and creates a U-Net model for image segmentation.
+# Training the Resnet Model:
+I set the parameters and paths, defines the data processing functions, and creates a **U-Net model** for image segmentation.
 Later used a pre-trained ResNet-50 model for feature extraction and combines it with the U-Net architecture to create a final model.
 Loss functions (Dice coefficient, binary cross-entropy) and a mean Intersection over Union (IoU) metric are defined.
 The data is divided into training, validation, and test sets.
@@ -31,5 +31,38 @@ There's a section for retraining the model from a specific epoch (e.g., epoch 4)
 
 - In summary, the code loads image and mask data, creates a U-Net model with a ResNet-50 backbone for image segmentation, and trains the model to segment objects (ships) in the images using a combination of loss functions and the mean Intersection over Union (IoU) metric. The model is trained in multiple epochs, with checkpoints to save the best model, and it can be retrained from a specific epoch if needed. The goal is to create a model that accurately segments ships in the given images.
 
+  # Training Mobilenet Model:
+ - Model Building:
+
+The code builds a UNet-based model for image segmentation.
+The UNet model is designed with an encoder-decoder architecture, where the encoder extracts features from the input image, and the decoder produces a pixel-wise mask that identifies ship locations.
+The encoder uses convolutional layers with instance normalization, and the decoder incorporates skip connections to refine the output mask.
+- Loss Functions:
+
+The code defines several loss functions, including dice loss, binary cross-entropy loss, and a combination of both (bce_dice_loss).
+Additionally, a custom metric called "IoU" (Intersection over Union) is implemented to measure segmentation accuracy.
+- Data Balancing:
+
+The dataset may be balanced by reducing the number of images without ships to a specified limit (IMAGES_WITHOUT_SHIPS_NUMBER). This balance is crucial to ensure that the model learns effectively from both positive and negative examples.
+- Data Splitting:
+
+The dataset is split into training, validation, and test sets. The split sizes are determined by the values of TRAIN_LENGTH, VALIDATION_LENGTH, and TEST_LENGTH.
+Training and validation datasets are created as TensorFlow Datasets and batched for model training.
+- Transfer Learning:
+
+Transfer learning is employed using a pre-trained MobileNetV3Large model. The weights are loaded, and layers are made non-trainable to fine-tune the model for the specific task.
+Model Training:
+
+The model is compiled with a custom optimizer (RectifiedAdam) and the defined loss functions and metrics.
+Model training is carried out over multiple epochs, with checkpoints saved to monitor progress.
+Model Evaluation:
+
+After training, the model is evaluated on a test dataset using the "evaluate" method, which returns metrics such as loss, mean IoU, and binary accuracy.
+
+- Result Analysis:
+
+This methodology combines transfer learning with a UNet architecture, leveraging the strengths of a pre-trained model to perform pixel-level image segmentation, which can be useful for tasks such as ship detection in images. It also includes custom loss functions and metrics tailored to the problem domain. The methodology appears to be suited for datasets where objects need to be segmented and classified in images.
+
+But compared to mobilenet which gave an accuracy of 65%, resnet50 did a pretty good job. 
 
 
